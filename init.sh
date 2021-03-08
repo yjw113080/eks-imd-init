@@ -1,4 +1,5 @@
 # kubectl
+sh ~/environment/init/resize.sh 60
 echo '============================================'
 echo 'Installing kubectl'
 echo '============================================'
@@ -18,6 +19,7 @@ sudo yum -y install jq gettext bash-completion moreutils
 echo 'yq() {
   docker run --rm -i -v "${PWD}":/workdir mikefarah/yq "$@"
 }' | tee -a ~/.bashrc && source ~/.bashrc
+curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 
 # env configuration
 echo '============================================'
