@@ -62,6 +62,6 @@ test -n "$AWS_REGION" && echo AWS_REGION is "$AWS_REGION" || echo AWS_REGION is 
 test -n "$AZS" && echo AZS is "$AZS" || echo AZS is not set
 test -n "$MASTER_ARN" && echo MASTER_ARN is "$MASTER_ARN" || echo MASTER_ARN is not set
 
-aws sts get-caller-identity --query Arn | grep -q EksImdStack-admin && echo "IAM role valid" || echo "IAM role NOT valid"
+aws sts get-caller-identity --query Arn | grep -q Cloud9InstanceRole && echo "IAM role valid" || echo "IAM role NOT valid"
 echo 'kubectl version is' $(kubectl version --client --short)
 echo 'eksctl version is' $(eksctl version)
