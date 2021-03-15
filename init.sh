@@ -2,6 +2,7 @@
 echo '============================================'
 echo 'Configuring the environment'
 echo '============================================'
+sudo yum -y install jq
 rm -vf ${HOME}/.aws/credentials
 
 export ACCOUNT_ID=$(aws sts get-caller-identity --output text --query Account)
@@ -32,7 +33,7 @@ echo '============================================'
 echo 'Installing other tools'
 echo '============================================'
 sudo pip install --upgrade awscli && hash -r
-sudo yum -y install jq gettext bash-completion moreutils
+sudo yum -y install gettext bash-completion moreutils
 echo 'yq() {
   docker run --rm -i -v "${PWD}":/workdir mikefarah/yq "$@"
 }' | tee -a ~/.bashrc && source ~/.bashrc
