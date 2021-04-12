@@ -3,7 +3,6 @@ echo '============================================'
 echo 'Configuring the environment'
 echo '============================================'
 sudo yum -y install jq
-rm -vf ${HOME}/.aws/credentials
 
 export ACCOUNT_ID=$(aws sts get-caller-identity --output text --query Account)
 export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.region')
