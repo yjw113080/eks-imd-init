@@ -16,6 +16,17 @@ AWS Cloud9의 경우, IAM credentials를 동적으로 관리합니다. 해당 cr
 ![](https://aws-eks-web-application.workshop.aws/images/30-setting/aws_cloud9_05.png)
 
 4. **GetCallerIdentity** CLI 명령어를 통해, Cloud9 IDE가 올바른 IAM Role을 사용하고 있는지 확인하세요. 결과 값이 나오면 올바르게 설정된 것입니다.
-```
-aws sts get-caller-identity --query Arn | grep Cloud9InstanceRole
-```
+  ```
+  aws sts get-caller-identity --query Arn | grep Cloud9InstanceRole
+  ```
+
+5. EKS 워크샵 진행을 위한 툴들을 설치하는 스크립트를 실행합니다.
+  ```
+  sh init/init.sh
+  source ~/.bash_profile
+  ```
+
+6. 스크립트 실행이 모두 완료된 후, 아래 명령어로 `ap-northeast-2` 가 출력되면 세팅이 정상적으로 완료된 것입니다. (주의, 진행자의 선택에 따라 다른 리전 값이 출력될 수 있습니다.)
+  ```
+  echo $AWS_REGION
+  ```
